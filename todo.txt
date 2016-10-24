@@ -1,0 +1,2 @@
+Implementing the equals method for the tour search
+Check the hashCode method for the npuzzle search

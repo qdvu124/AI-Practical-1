@@ -11,6 +11,7 @@ public class DepthFirstFrontier implements Frontier {
 	@Override
 	public Node removeNode() {
 		// TODO Auto-generated method stub
+		// DepthFirstSearch using a stack, last in first out principle
 		if(isEmpty())
 			return null;
 		return frontier.removeLast();
@@ -27,7 +28,7 @@ public class DepthFirstFrontier implements Frontier {
 		// TODO Auto-generated method stub
 		if(isEmpty())
 			return;
-		while(isEmpty()) 
-			frontier.removeFirst();
+		while(!isEmpty()) 
+			frontier.removeLast();
 	}
 }

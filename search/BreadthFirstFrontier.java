@@ -17,6 +17,9 @@ public class BreadthFirstFrontier implements Frontier {
 	@Override
 	public Node removeNode() {
 		// TODO Auto-generated method stub
+		if(isEmpty())
+			return null;
+		// BreadthFirstSearch using a queue, first in first out principle
 		return frontier.removeFirst();
 	}
 

@@ -28,4 +28,10 @@ public class TourState implements State {
 		newVisitedCities.add(road.targetCity);
 		return new TourState(newVisitedCities, road.targetCity);
 	}
+	public int hashCode() {
+		return 0;
+	}
+	public boolean equals(TourState another) {
+		return hashCode() == another.hashCode();
+	}
 }

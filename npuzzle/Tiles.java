@@ -69,4 +69,25 @@ public class Tiles implements State {
 		newTiles[newEmptyTileRow * width + newEmptyTileColumn] = EMPTY_TILE;
 		return new Tiles(width, newTiles, newEmptyTileRow, newEmptyTileColumn);
 	}
+	public boolean equals(Tiles anotherState) {
+		// TODO Auto-generated method stub
+		//Different sizes, therefore cannot be equal
+		if(anotherState.getWidth() != getWidth())
+			return false;
+		//Else check elements at the same position to see if they are equal
+		for(int i = 0; i < width; i++) {
+			for(int j = 0; j < width; j++)
+				if(anotherState.getTile(i, j) != getTile(i,j))
+					return false;
+		}
+		return true;
+	}
+	public int hashCode() {
+		//final int prime = 31;
+		StringBuilder sb = new StringBuilder();
+		for(int i: tiles) {
+				sb.append(i);
+		}
+		return Integer.parseInt(sb.toString());
+	}
 }
