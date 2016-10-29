@@ -1,11 +1,15 @@
 package search;
 
 public class DepthFirstFrontier implements Frontier {
+	
+	int maxSize = Integer.MIN_VALUE;
 
 	@Override
 	public void addNode(Node node) {
 		// TODO Auto-generated method stub
 		frontier.addLast(node);
+		if(frontier.size() > maxSize)
+			maxSize = frontier.size();
 	}
 
 	@Override
@@ -30,5 +34,11 @@ public class DepthFirstFrontier implements Frontier {
 			return;
 		while(!isEmpty()) 
 			frontier.removeLast();
+	}
+
+	@Override
+	public int maxSize() {
+		// TODO Auto-generated method stub
+		return maxSize;
 	}
 }

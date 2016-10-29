@@ -1,7 +1,6 @@
 package search;
 
-import java.util.Collections;
-import java.util.Set;
+import java.util.HashSet;
 
 public class GraphSearch implements Search {
 	Frontier frontier;
@@ -12,7 +11,7 @@ public class GraphSearch implements Search {
 	@Override
 	public Node findSolution(Node root, GoalTest goalTest) {
 		// TODO Auto-generated method stub
-		Set<Node> visitedNode = Collections.emptySet();
+		HashSet<Node> visitedNode = new HashSet<Node>();
 		frontier.addNode(root);
 		nodeGenerated++;
 		while (!frontier.isEmpty()) {
@@ -25,8 +24,10 @@ public class GraphSearch implements Search {
 			else {
 				for (Action action : node.state.getApplicableActions()) {
 					State newState = node.state.getActionResult(action);
-					frontier.addNode(new Node(node, action, newState));
-					nodeGenerated++;
+					if(!visitedNode.contains(newState)) {
+						frontier.addNode(new Node(node, action, newState));
+						nodeGenerated++;
+					}
 				}
 			}
 		}
@@ -37,6 +38,10 @@ public class GraphSearch implements Search {
 	public int nodeGenerated() {
 		// TODO Auto-generated method stub
 		return nodeGenerated;
+	}
+	
+	public int frontierMaxSize() {
+		return frontier.maxSize();
 	}
 
 }

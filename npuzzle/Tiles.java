@@ -55,7 +55,7 @@ public class Tiles implements State {
 		for (Movement movement : Movement.values()) {
 			int newEmptyTileRow = emptyTileRow + movement.deltaRow;
 			int newEmptyTileColumn = emptyTileColumn + movement.deltaColumn;
-			if (0 <= newEmptyTileRow && newEmptyTileRow < width && 0 <= newEmptyTileColumn & newEmptyTileColumn < width)
+			if (0 <= newEmptyTileRow && newEmptyTileRow < width && 0 <= newEmptyTileColumn && newEmptyTileColumn < width)
 				actions.add(movement);
 		}
 		return actions;

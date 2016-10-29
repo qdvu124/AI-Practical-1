@@ -32,4 +32,8 @@ public class TreeSearch implements Search {
 		// TODO Auto-generated method stub
 		return nodeGenerated;
 	}
+	
+	public int frontierMaxSize() {
+		return this.frontier.maxSize();
+	}
 }

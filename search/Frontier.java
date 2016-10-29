@@ -8,4 +8,5 @@ public interface Frontier {
 	boolean isEmpty();
 	Node removeNode();
 	void removeAll();
+	int maxSize();
 }
