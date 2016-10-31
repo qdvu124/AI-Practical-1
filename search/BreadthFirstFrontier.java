@@ -1,8 +1,16 @@
 package search;
 
+import java.util.LinkedList;
+
 public class BreadthFirstFrontier implements Frontier {
 	
 	private int maxSize = Integer.MIN_VALUE;
+	private LinkedList<Node> frontier;
+	
+	public BreadthFirstFrontier() {
+		maxSize = Integer.MIN_VALUE;
+		frontier = new LinkedList<Node>();
+	}
 
 	@Override
 	public void addNode(Node node) {

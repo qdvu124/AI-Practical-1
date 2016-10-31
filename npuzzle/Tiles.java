@@ -70,9 +70,10 @@ public class Tiles implements State {
 		return new Tiles(width, newTiles, newEmptyTileRow, newEmptyTileColumn);
 	}
 	@Override
-	public boolean equals(Tiles anotherState) {
+	public boolean equals(Object anotherObject) {
 		// TODO Auto-generated method stub
 		//Different sizes, therefore cannot be equal
+		Tiles anotherState = (Tiles) anotherObject;
 		if(anotherState.getWidth() != getWidth())
 			return false;
 		//Else check elements at the same position to see if they are equal
@@ -89,7 +90,6 @@ public class Tiles implements State {
 		int hash = 1;
 		for(int i = 0; i < tiles.length; i++)
 			hash *= (i + tiles[i] % prime + 1);
-		System.out.println(hash);
 		return hash;
 	}
 }

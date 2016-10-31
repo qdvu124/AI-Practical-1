@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import npuzzle.Tiles;
 import search.Action;
 import search.State;
 
@@ -30,7 +29,11 @@ public class TourState implements State {
 		return new TourState(newVisitedCities, road.targetCity);
 	}
 	public int hashCode() {
-		return 0;
+		StringBuilder sb = new StringBuilder();
+		for(City city: visitedCities) {
+			sb.append(city.name);
+		}
+		return sb.toString().hashCode();
 	}
 	public boolean equals(TourState another) {
 		for(City city: visitedCities) {
@@ -38,10 +41,5 @@ public class TourState implements State {
 				return false;
 		}
 		return true;
-	}
-	@Override
-	public boolean equals(Tiles anotherState) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 }

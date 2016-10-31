@@ -11,26 +11,23 @@ public class GraphSearch implements Search {
 	@Override
 	public Node findSolution(Node root, GoalTest goalTest) {
 		// TODO Auto-generated method stub
-		//HashSet<State> visitedState= new HashSet<State>();
+		HashSet<State> visitedState= new HashSet<State>();
 		frontier.addNode(root);
 		nodeGenerated++;
 		while (!frontier.isEmpty()) {
 			Node node = frontier.removeNode();
-			/*if(visitedState.contains(node.state)){
-				System.out.println(node.state);
-				System.out.println("Repeating!");
+			if(visitedState.contains(node.state))
 				continue;
-			}*/
-			//visitedState.add(node.state);
+			visitedState.add(node.state);
 			if (goalTest.isGoal(node.state))
 				return node;
 			else {
 				for (Action action : node.state.getApplicableActions()) {
 					State newState = node.state.getActionResult(action);
-					//if(!visitedState.contains(newState)) {
+					if(!visitedState.contains(newState)) {
 						frontier.addNode(new Node(node, action, newState));
 						nodeGenerated++;
-					//}
+					}
 				}
 			}
 		}
@@ -46,5 +43,4 @@ public class GraphSearch implements Search {
 	public int frontierMaxSize() {
 		return frontier.maxSize();
 	}
-
 }
