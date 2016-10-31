@@ -35,7 +35,8 @@ public class TourState implements State {
 		}
 		return sb.toString().hashCode();
 	}
-	public boolean equals(TourState another) {
+	public boolean equals(Object anotherObject) {
+		TourState another = (TourState) anotherObject;
 		for(City city: visitedCities) {
 			if(!another.visitedCities.contains(city))
 				return false;
