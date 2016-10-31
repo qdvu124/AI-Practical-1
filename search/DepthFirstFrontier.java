@@ -32,11 +32,13 @@ public class DepthFirstFrontier implements Frontier {
 		// TODO Auto-generated method stub
 		if(isEmpty())
 			return;
+		// Remove until the frontier is empty
 		while(!isEmpty()) 
 			frontier.removeLast();
 	}
 
 	@Override
+	// Return the maximum size of the frontier
 	public int maxSize() {
 		// TODO Auto-generated method stub
 		return maxSize;

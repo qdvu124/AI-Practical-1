@@ -2,7 +2,7 @@ package search;
 
 public class BreadthFirstFrontier implements Frontier {
 	
-	int maxSize = Integer.MIN_VALUE;
+	private int maxSize = Integer.MIN_VALUE;
 
 	@Override
 	public void addNode(Node node) {
@@ -32,11 +32,13 @@ public class BreadthFirstFrontier implements Frontier {
 		// TODO Auto-generated method stub
 		if(isEmpty())
 			return;
+		// Remove until the frontier is empty
 		while(!isEmpty())
 			frontier.removeFirst();
 	}
 
 	@Override
+	// Return the maximum size of the frontier 
 	public int maxSize() {
 		// TODO Auto-generated method stub
 		return maxSize;

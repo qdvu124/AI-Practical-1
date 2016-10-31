@@ -11,23 +11,26 @@ public class GraphSearch implements Search {
 	@Override
 	public Node findSolution(Node root, GoalTest goalTest) {
 		// TODO Auto-generated method stub
-		HashSet<Node> visitedNode = new HashSet<Node>();
+		//HashSet<State> visitedState= new HashSet<State>();
 		frontier.addNode(root);
 		nodeGenerated++;
 		while (!frontier.isEmpty()) {
 			Node node = frontier.removeNode();
-			if(visitedNode.contains(node))
+			/*if(visitedState.contains(node.state)){
+				System.out.println(node.state);
+				System.out.println("Repeating!");
 				continue;
-			visitedNode.add(node);
+			}*/
+			//visitedState.add(node.state);
 			if (goalTest.isGoal(node.state))
 				return node;
 			else {
 				for (Action action : node.state.getApplicableActions()) {
 					State newState = node.state.getActionResult(action);
-					if(!visitedNode.contains(newState)) {
+					//if(!visitedState.contains(newState)) {
 						frontier.addNode(new Node(node, action, newState));
 						nodeGenerated++;
-					}
+					//}
 				}
 			}
 		}
